@@ -18,6 +18,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+    int counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +63,11 @@ public class MainActivity extends AppCompatActivity {
 
         TextView txtv = findViewById(R.id.textView);
         TextView txtv2 = findViewById(R.id.textView2);
+        TextView showValue = findViewById(R.id.textView3);
 
         EditText numberInput = (EditText) findViewById(R.id.numberInput);
         Integer thenumberInput = Integer.valueOf(numberInput.getText().toString());
+
 
         Random r = new Random();
         int number = r.nextInt(6);
@@ -73,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
         if (thenumberInput == number) {
 
             txtv2.setText("Congratulations!");
+            counter++;
+            showValue.setText(Integer.toString(counter));
+
         }
         else {
             txtv2.setText("");
